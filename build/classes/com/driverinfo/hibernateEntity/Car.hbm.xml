@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 10:27:41 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.driverinfo.hibernateEntity.Car" table="car" catalog="cdcms" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="chp" type="string">
+            <column name="chp" length="50">
+                <comment>&#232;&#189;&#166;&#231;&#137;&#140;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+        <property name="cartype" type="java.lang.Integer">
+            <column name="cartype">
+                <comment>&#232;&#189;&#166;&#229;&#158;&#139;</comment>
+            </column>
+        </property>
+        <property name="carcolor" type="string">
+            <column name="carcolor" length="18">
+                <comment>&#232;&#189;&#166;&#232;&#186;&#171;&#233;&#162;&#156;&#232;&#137;&#178;</comment>
+            </column>
+        </property>
+        <property name="engineNo" type="string">
+            <column name="engineNo" length="11">
+                <comment>&#229;&#143;&#145;&#229;&#138;&#168;&#230;&#156;&#186;&#231;&#188;&#150;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+        <property name="operationState" type="string">
+            <column name="operationState" length="20">
+                <comment>&#232;&#191;&#144;&#232;&#144;&#165;&#231;&#138;&#182;&#230;&#128;&#129;</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status">
+                <comment>&#231;&#138;&#182;&#230;&#128;&#129;</comment>
+            </column>
+        </property>
+        <property name="companyid" type="java.lang.Integer">
+            <column name="companyid">
+                <comment>&#230;&#137;&#128;&#229;&#177;&#158;&#229;&#133;&#172;&#229;&#143;&#184;</comment>
+            </column>
+        </property>
+        <property name="putOperationtime" type="timestamp">
+            <column name="putOperationtime" length="19">
+                <comment>&#230;&#138;&#149;&#232;&#191;&#144;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+        <property name="travelid" type="string">
+            <column name="travelid" length="25">
+                <comment>&#232;&#161;&#140;&#233;&#169;&#182;&#232;&#175;&#129;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" length="19">
+                <comment>&#229;&#136;&#155;&#229;&#187;&#186;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="updatetime" length="19">
+                <comment>&#230;&#155;&#180;&#230;&#150;&#176;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+        <property name="restrictDate" type="java.lang.Integer">
+            <column name="restrictDate">
+                <comment>&#233;&#153;&#144;&#231;&#148;&#168;&#229;&#185;&#180;&#233;&#153;&#144;</comment>
+            </column>
+        </property>
+        <property name="scrapdate" type="timestamp">
+            <column name="scrapdate" length="19">
+                <comment>&#230;&#138;&#165;&#229;&#186;&#159;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="creatorid" type="java.lang.Integer">
+            <column name="creatorid">
+                <comment>&#229;&#136;&#155;&#229;&#187;&#186;&#232;&#128;&#133;</comment>
+            </column>
+        </property>
+        <set name="drivers" table="driver" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="carid">
+                    <comment>&#232;&#189;&#166;&#232;&#190;&#134;id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.driverinfo.hibernateEntity.Driver" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 10:27:41 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.driverinfo.hibernateEntity.Authority" table="authority" catalog="cdcms" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="25" not-null="true">
+                <comment>&#230;&#157;&#131;&#233;&#153;&#144;&#229;&#144;&#141;&#231;&#167;&#176;</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="25" not-null="true">
+                <comment>&#230;&#157;&#131;&#233;&#153;&#144;&#230;&#160;&#135;&#233;&#162;&#152;</comment>
+            </column>
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="10">
+                <comment>&#231;&#188;&#150;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+        <property name="fathercode" type="string">
+            <column name="fathercode" length="10">
+                <comment>
+                &#229;&#173;&#144;&#232;&#143;&#156;&#229;&#141;&#149;(&#229;&#175;&#185;&#229;&#186;&#148;&#231;&#136;&#182;&#231;&#186;&#167;&#232;&#143;&#156;&#229;&#141;&#149;&#231;&#188;&#150;&#229;&#143;&#183;code)</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="50">
+                <comment>&#231;&#177;&#187;&#229;&#158;&#139;</comment>
+            </column>
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="50">
+                <comment>&#232;&#183;&#175;&#229;&#190;&#132;</comment>
+            </column>
+        </property>
+        <property name="icon" type="string">
+            <column name="icon" length="50">
+                <comment>&#229;&#155;&#190;&#230;&#160;&#135;</comment>
+            </column>
+        </property>
+        <property name="desciption" type="string">
+            <column name="desciption" length="50">
+                <comment>&#230;&#143;&#143;&#232;&#191;&#176;</comment>
+            </column>
+        </property>
+        <property name="creatorid" type="java.lang.Integer">
+            <column name="creatorid">
+                <comment>&#229;&#136;&#155;&#229;&#187;&#186;&#232;&#128;&#133;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" length="19">
+                <comment>&#229;&#136;&#155;&#229;&#187;&#186;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="updatetime" length="19">
+                <comment>&#230;&#155;&#180;&#230;&#150;&#176;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+        <property name="areaid" type="java.lang.Integer">
+            <column name="areaid">
+                <comment>&#230;&#137;&#128;&#229;&#177;&#158;&#229;&#156;&#176;&#229;&#140;&#186;</comment>
+            </column>
+        </property>
+        <set name="roleAuths" table="roleAuth" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="authorityid" not-null="true">
+                    <comment>&#230;&#157;&#131;&#233;&#153;&#144;id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.driverinfo.hibernateEntity.RoleAuth" />
+        </set>
+    </class>
+</hibernate-mapping>

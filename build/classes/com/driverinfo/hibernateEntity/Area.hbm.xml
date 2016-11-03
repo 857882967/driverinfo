@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 10:27:41 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.driverinfo.hibernateEntity.Area" table="area" catalog="cdcms" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="int">
+            <column name="code" not-null="true">
+                <comment>&#231;&#188;&#150;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="20">
+                <comment>&#229;&#144;&#141;&#231;&#167;&#176;</comment>
+            </column>
+        </property>
+        <property name="fathercode" type="string">
+            <column name="fathercode" length="25">
+                <comment>&#231;&#136;&#182;&#231;&#186;&#167;&#231;&#188;&#150;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

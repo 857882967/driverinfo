@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 10:27:41 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.driverinfo.hibernateEntity.Areas" table="areas" catalog="cdcms" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="string">
+            <column name="code" length="6" not-null="true">
+                <comment>地区编码</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="40" not-null="true">
+                <comment>名称</comment>
+            </column>
+        </property>
+        <property name="fathercode" type="string">
+            <column name="fathercode" length="6">
+                <comment>父级code</comment>
+            </column>
+        </property>
+        <property name="level" type="int">
+            <column name="level" not-null="true">
+                <comment>地区等级</comment>
+            </column>
+        </property>
+        <set name="companies" table="company" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="areaid">
+                    <comment>地区id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.driverinfo.hibernateEntity.Company" />
+        </set>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="areaid">
+                    <comment>地区id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.driverinfo.hibernateEntity.User" />
+        </set>
+    </class>
+</hibernate-mapping>

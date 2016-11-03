@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-26 10:27:41 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.driverinfo.hibernateEntity.UserRole" table="userRole" catalog="cdcms" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="com.driverinfo.hibernateEntity.Role" fetch="select">
+            <column name="roleid" not-null="true">
+                <comment>roleid</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="user" class="com.driverinfo.hibernateEntity.User" fetch="select">
+            <column name="userid" not-null="true">
+                <comment>userid</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
